@@ -4,5 +4,5 @@ CREATE TABLE contapf (
     conta int (11) NOT NULL,
     cod_banco int (11) NOT NULL,
     saldo double (11) NOT NULL,
-    FOREIGN KEY(cliente_id) REFERENCES cliente(id)
+    cliente_id integer(11) not null,
 );

@@ -20,7 +20,6 @@ public abstract class BaseController<Entities extends BaseEntity, Repositories e
 	public ResponseEntity<Entities> store(@Valid @RequestBody Entities entity) {
 		Entities novaProposta = service.store(entity);
 		return ResponseEntity.status(201).body(novaProposta);
-
 	}
 	
 	@GetMapping("/{id}")
@@ -28,4 +27,5 @@ public abstract class BaseController<Entities extends BaseEntity, Repositories e
 		Entities entity = service.getOne(id);
 		return ResponseEntity.ok(entity);
 	}
+	
 }

@@ -1,21 +1,25 @@
 package com.banco.digital.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.banco.digital.resources.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "conta_pf")
-public class ContaPfEntity {
+@Table(name = "contapf")
+public class ContaPfEntity extends BaseEntity {
 
 	private int agencia;
 	private int conta;
 	private int codBanco;
 	private double saldo;
+	@Column(name = "cliente_id", nullable = false)
+	private Integer clienteId;
 	
 	public ContaPfEntity(double saldo) {
 		super();
@@ -69,23 +73,25 @@ public class ContaPfEntity {
 		this.saldo = saldo;
 	}
 
-
-
 	public ClienteEntity getCliente() {
 		return cliente;
 	}
-
-
 
 	public void setCliente(ClienteEntity cliente) {
 		this.cliente = cliente;
 	}
 
+	public Integer getClienteId() {
+		return clienteId;
+	}
 
+	public void setClienteId(Integer clienteId) {
+		this.clienteId = clienteId;
+	}
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id", insertable = false, updatable = false)
-	@JsonIgnoreProperties("conta_pf")
+	@JsonIgnoreProperties("contaPf")
 	private ClienteEntity cliente;
 	
 }

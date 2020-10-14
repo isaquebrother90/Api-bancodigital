@@ -113,11 +113,23 @@ public class ClienteEntity extends BaseEntity {
 		this.fotoCpf = fotoCpf;
 	}
 
+	public ContaPfEntity getConta_pf() {
+		return contaPf;
+	}
+
+	public void setConta_pf(ContaPfEntity conta_pf) {
+		this.contaPf = conta_pf;
+	}
+
 
 
 	@OneToOne(mappedBy = "cliente")
 	@JsonIgnoreProperties("cliente")
 	private EnderecoEntity endereco;
+	
+	@OneToOne(mappedBy = "cliente")
+	@JsonIgnoreProperties("cliente")
+	private ContaPfEntity contaPf;
 
 	/*
 	 * @OneToOne(mappedBy = "cliente")
