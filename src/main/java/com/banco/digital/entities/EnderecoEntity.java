@@ -107,13 +107,10 @@ public class EnderecoEntity extends BaseEntity {
 		this.cliente = cliente;
 	}
 
-
-
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id", insertable = false, updatable = false)
 	@JsonIgnoreProperties("endereco")
 	private ClienteEntity cliente;
-
 
 	@Override
 	public String toString() {
