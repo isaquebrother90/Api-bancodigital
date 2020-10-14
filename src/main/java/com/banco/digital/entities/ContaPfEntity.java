@@ -17,15 +17,9 @@ public class ContaPfEntity extends BaseEntity {
 	private int agencia;
 	private int conta;
 	private int codBanco;
-	private double saldo;
+	private double saldo = 0;
 	@Column(name = "cliente_id", nullable = false)
 	private Integer clienteId;
-	
-	public ContaPfEntity(double saldo) {
-		super();
-		this.saldo = saldo;
-		saldo = 0;
-	}
 	
 	public int getAgencia() {
 		return agencia;
