@@ -1,0 +1,11 @@
+CREATE TABLE cliente (
+  id integer(11) PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(150) NOT NULL,
+  sobrenome VARCHAR(100) NOT NULL,
+  data_nascimento VARCHAR(15) NOT NULL,
+  idade VARCHAR(10)NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  cpf VARCHAR(14) NOT NULL,
+  foto_cpf LONGTEXT NULL,
+  telefone VARCHAR(11) NOT NULL
+);
