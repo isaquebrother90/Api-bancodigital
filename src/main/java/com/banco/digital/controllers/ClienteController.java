@@ -18,20 +18,29 @@ import com.banco.digital.repositories.ClienteRepository;
 import com.banco.digital.resources.BaseController;
 import com.banco.digital.services.ClienteService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/clientes")
+@Api(tags = "cliente", description = "Esse Controller é responsável pelos endpoints de cliente")
 public class ClienteController extends BaseController<ClienteEntity, ClienteRepository, ClienteService> {
-	
+
+	@ApiOperation(value = "Salvar uma foto do cliente", notes = "Atualiza o campo fotoCpf da tabela cliente do DB, enviando a imagem para ClienteDto e depois salvando na tabela de clientes.")
+	@ApiImplicitParams(@ApiImplicitParam(name = "nome", value = "Nome do contato"))
+
 	@PatchMapping("/{id}/fotoCpf")
 	@Transactional
-	public ResponseEntity<ClienteEntity> atualizaFotoCpf (@PathVariable ("id") Integer id, @RequestBody ClienteDto clienteDto, UriComponentsBuilder b) {
+	public ResponseEntity<ClienteEntity> atualizaFotoCpf(@PathVariable("id") Integer id,
+			@RequestBody ClienteDto clienteDto, UriComponentsBuilder b) {
 		ClienteEntity cliente = service.updateFotoCpf(id, clienteDto);
-		UriComponents uriComponents = 
-		        b.path("/customers/{id}").buildAndExpand(id);
+		UriComponents uriComponents = b.path("/customers/{id}").buildAndExpand(id);
 
-		    HttpHeaders headers = new HttpHeaders();
-		    headers.setLocation(uriComponents.toUri());
-		    return new ResponseEntity<ClienteEntity>(cliente, headers, HttpStatus.CREATED);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(uriComponents.toUri());
+		return new ResponseEntity<ClienteEntity>(cliente, headers, HttpStatus.CREATED);
 	}
 
 }
