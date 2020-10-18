@@ -21,6 +21,25 @@ public class ContaPfEntity extends BaseEntity {
 	@Column(name = "cliente_id", nullable = false)
 	private Integer clienteId;
 	
+	
+
+	public ContaPfEntity() {
+		super();
+	}
+
+
+
+	public ContaPfEntity(int agencia, int conta, int codBanco, double saldo, Integer clienteId) {
+		super();
+		this.agencia = agencia;
+		this.conta = conta;
+		this.codBanco = codBanco;
+		this.saldo = saldo;
+		this.clienteId = clienteId;
+	}
+
+
+
 	public int getAgencia() {
 		return agencia;
 	}

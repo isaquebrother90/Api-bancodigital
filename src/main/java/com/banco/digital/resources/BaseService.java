@@ -1,14 +1,10 @@
 package com.banco.digital.resources;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
-
 import com.banco.digital.entities.ClienteEntity;
 import com.banco.digital.interfaces.ValidaDataNascimento;
 

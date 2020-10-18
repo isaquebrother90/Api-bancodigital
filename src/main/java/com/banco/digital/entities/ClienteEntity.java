@@ -4,11 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
-import com.banco.digital.interfaces.ValidaDataNascimento;
 import com.banco.digital.resources.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
